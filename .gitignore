@@ -1,5 +1,29 @@
 # packaging
-attacker_tool.egg-info
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# python
+*.py[cod]
+*$py.class
+.cache
+.idea
+__pycache__
+.coverage
 
 # IDE
 .vscode
