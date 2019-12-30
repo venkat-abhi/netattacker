@@ -1,0 +1,7 @@
+# packaging
+attacker_tool.egg-info
+
+# IDE
+.vscode
+
+unused/
