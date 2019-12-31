@@ -4,13 +4,11 @@ from importlib import import_module
 
 def grab(scr_name, *args, **kwargs):
 	try:
-		if '.' in scr_name:
-			module_name, class_name = scr_name.rsplit('.', 1)
-		else:
-			module_name = scr_name
-			class_name = scr_name.capitalize()
+		#if 'modules.' in scr_name:
+		if ('.' in scr_name):
+			module_name, class_name = scr_name.rsplit(".", 1)
 
-		attack_module = import_module('.' + module_name, package='animals')
+		attack_module = import_module('.' + module_name, package='modules')
 
 		attack_class = getattr(attack_module, class_name)
 
