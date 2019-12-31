@@ -1,4 +1,4 @@
-# Codes To Simulate Various Network Related Attacks
+# Information on Various Network Attacks
 More information can be found in the blog posts I have written on them.
 
 * [NTP Amplification](https://fsec404.github.io/blog/A-look-at-NTP-traffic-amplification/)
