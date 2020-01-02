@@ -29,6 +29,6 @@ __pycache__
 .vscode
 
 unused/
-proenv
+venv/
 
 notes.txt

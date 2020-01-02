@@ -1,11 +1,12 @@
-from arp import ArpPoisner
-
-from scapy.all import DNS, DNSQR, IP, IPv6, send, UDP, sniff, DNSRR
-from subprocess import Popen, PIPE
-from multiprocessing import Process
 import platform
+from multiprocessing import Process
+from subprocess import PIPE, Popen
 
-class DnsHijacker(ArpPoisner):
+from scapy.all import DNS, DNSQR, DNSRR, IP, UDP, IPv6, send, sniff
+
+from .arp import ArpPoisoner
+
+class DnsHijacker(ArpPoisoner):
 	def __init__(self, target, webserver_ipv4):
 		super().__init__(target)
 		self.webserver_ipv4 = webserver_ipv4

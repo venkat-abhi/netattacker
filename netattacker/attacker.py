@@ -11,7 +11,7 @@ ATTACK_TYPE = [
 	'INVALID'
 ]
 
-class Attacker():
+class AttackerBaseClass():
 	def __init__(self, target:str, spoof_ip:str=None, attack=None):
 		self.target_ipv4 = socket.gethostbyname(target)
 
@@ -27,19 +27,19 @@ class Attacker():
 		print("[*] Target IP: " + self.target_ipv4)
 
 	def __repr__(self):
-		#return "Attacker('{}', '{}')".format(self.target_ipv4, self.spoof_ip)
-		return "Attacker('{}')".format(self.target_ipv4)
+		#return "AttackerBaseClass('{}', '{}')".format(self.target_ipv4, self.spoof_ip)
+		return "AttackerBaseClass('{}')".format(self.target_ipv4)
 
 	def setup_config(self):
 		pass
 
 def main():
-	a = Attacker("192.168.1.2", attack="SYN_FLOOD")
+	a = AttackerBaseClass("192.168.1.2", attack="SYN_FLOOD")
 	print(a.__dict__)
 	a.print_target_ip()
 	print(a)
 
-	b = Attacker("www.absolute.com")
+	b = AttackerBaseClass("www.absolute.com")
 	print(b.__dict__)
 	b.print_target_ip()
 

