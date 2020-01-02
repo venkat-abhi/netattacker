@@ -16,7 +16,7 @@ class DnsHijacker(ArpPoisoner):
 		"""Enable IPv4 forwarding and Disables DNS Query forwarding"""
 
 		# Enable IPv4 forwarding
-		super().setup_config()
+		ArpPoisoner.setup_config()
 
 		if (platform.system() == "Linux"):
 			# Disable DNS Query forwarding
