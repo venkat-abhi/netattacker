@@ -1,3 +1,15 @@
+# Setup
+1. Setup virtual env
+```bash
+python3 -m venv venv
+source venv/bin/activate
+
+# in the root dir (to allow package imports without sys.path mods; refer: https://stackoverflow.com/a/50193944/9810349) 
+pip install -e .
+```
+
+2. Install netaddr, scapy (preferably scapy[complete])
+
 # Information on Various Network Attacks
 More information can be found in the blog posts I have written on them.
 
