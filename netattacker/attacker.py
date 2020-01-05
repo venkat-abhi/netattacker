@@ -46,9 +46,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-
-"""
-from main
-	load all the module
-	create an interface (cmdline or ui based)
-"""
