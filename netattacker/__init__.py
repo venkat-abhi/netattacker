@@ -26,10 +26,10 @@ def grab(attack_module:str, *args, **kwargs):
 		instance = attack_class(*args, **kwargs)
 
 	except (AttributeError, AssertionError, ImportError):
-		raise ImportError('{} is not part of any submodules!'.format(attack_module))
+		raise ImportError('[#] {} is not part of any submodules!'.format(attack_module))
 
 	else:
 		if not issubclass(attack_class, AttackerBaseClass):
-			raise ImportError("The project currently doesn't have {}, but you are welcome to send in the request for it!".format(attack_class))
+			raise ImportError("[#] The project currently doesn't have {}, but you are welcome to send in the request for it!".format(attack_class))
 
 	return instance
