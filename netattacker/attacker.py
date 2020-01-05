@@ -8,6 +8,7 @@ ATTACK_TYPE = [
 	'SMURF',
 	'SYN_FLOOD',
 	'NTP_AMPLIFY',
+	'SYN_SCAN'
 	'INVALID'
 ]
 
