@@ -117,16 +117,12 @@ class ArpPoisoner(AttackerBaseClass):
 	# 	return (f'{self.__class__.__name__}('
 	#			f'{self.target_ipv4})')
 
-# def main():
-# 	a = ArpPoisoner("172.27.93.157")
-# 	print(a)
-# 	print(a.target_mac)
-# 	a.target_ipv4 = "172.20.10.2"
-# 	print(a.target_mac)
-# 	a.print_target_ip()
-# 	a.print_gateway_mac()
-# 	a.print_gateway_ipv4()
-# 	a.start()
+def main():
+	a = ArpPoisoner("172.27.93.157")
+	a.print_target_ip()
+	a.print_gateway_mac()
+	a.print_gateway_ipv4()
+	a.start()
 
-# if __name__ == "__main__":
-# 	main()
+if __name__ == "__main__":
+	main()
