@@ -6,6 +6,7 @@ from scapy.all import DNS, DNSQR, DNSRR, IP, UDP, IPv6, send, sniff
 
 from .arp import ArpPoisoner
 
+
 class DnsHijacker(ArpPoisoner):
 	def __init__(self, target, webserver_ipv4):
 		super().__init__(target)

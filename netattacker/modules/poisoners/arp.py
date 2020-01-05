@@ -1,8 +1,10 @@
-from netattacker.attacker import AttackerBaseClass
-
-from scapy.all import ARP, Ether, IP, ICMP, send, sr1, srp1
 import platform
 import time
+
+from scapy.all import ARP, ICMP, IP, Ether, send, sr1, srp1
+
+from netattacker.attacker import AttackerBaseClass
+
 
 class ArpPoisoner(AttackerBaseClass):
 	"""
