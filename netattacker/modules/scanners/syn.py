@@ -3,6 +3,27 @@ from scapy.all import IP, RandShort, sr, TCP
 from netattacker.attacker import AttackerBaseClass
 
 class SynScanner(AttackerBaseClass):
+	"""
+	A class used to represent a SYN port scanner
+
+	...
+
+	Attributes
+	----------
+	target : str
+		The target's hostname or IP address
+	target_ports : list
+		The ports to which the SYNs will be sent to (default - target_ports)
+
+	Methods
+	-------
+	print_target_ports()
+		Prints the ports to which the SYN packets will be sent
+	print_open_ports()
+		Prints the open ports found after the scan
+	start()
+		Creates SYN packets and sends them to scan the target
+	"""
 
 	# 100 ports from nmap-services
 	target_ports = [
@@ -26,6 +47,14 @@ class SynScanner(AttackerBaseClass):
 	]
 
 	def __init__(self, target:str, target_ports:list=None):
+		"""
+		Parameters
+		----------
+		target : str
+			The target's hostname or IP address
+		target_ports : list, optional
+			User defined target ports to send SYNs to
+		"""
 		super().__init__(target, attack="ARP_SCAN")
 
 		if (target_ports is not None):
@@ -38,14 +67,14 @@ class SynScanner(AttackerBaseClass):
 		print("[*] Target ports are:", *self.target_ports)
 
 	def print_open_ports(self):
+		"""Prints the ports found to be open"""
 		print("[*] The open ports are:", *self.open_ports)
 
 	def start(self, verbose:bool=False):
 		"""
-			Scans the ports and stores the results in a list; If verbose flag is passed,
-			the output is printed as well
+		Scans the ports and stores the results in a list; If verbose flag is passed,
+		the output is printed as well.
 		"""
-
 		print("[*] Starting SYN port scan")
 
 		ip = IP(dst=self.target_ipv4)

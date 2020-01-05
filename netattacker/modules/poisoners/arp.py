@@ -17,10 +17,8 @@ class ArpPoisoner(AttackerBaseClass):
 	-------
 	print_gateway_ipv4()
 		Prints the gateway IP address
-
 	print_gateway_mac()
 		Prints the gateway MAC address
-
 	start()
 		Poisons the router's and target ARP cache by continuously sending gratitious ARP
 		messages

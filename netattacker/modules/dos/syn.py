@@ -11,6 +11,8 @@ class SynFlooder(AttackerBaseClass):
 
 	Attributes
 	----------
+	target : str
+		The target's hostname or IP address
 	target_ports : list
 		The ports to which the SYNs will be sent to (default [21, 22, 80, 443])
 
@@ -18,9 +20,8 @@ class SynFlooder(AttackerBaseClass):
 	-------
 	print_target_ports()
 		Prints the ports to which the SYN packets will be sent
-
 	start()
-		Creats the SYN packets and sends it continuously to the target ports
+		Creates SYN packets and sends it continuously to the target ports
 	"""
 
 	target_ports = [21, 22, 80, 443]
