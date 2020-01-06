@@ -37,23 +37,27 @@ class SynScanner(ScannerBaseClass):
 
 		print("[*] SYN scan complete")
 
-		for i in ans:
-			if ("SA" == i[1][1].flags):
-				self.open_ports.append(i[1][1].sport)
+		for s, r in ans:
+			if ("SA" == r[TCP].flags):
+				self.open_ports.append(r[TCP].sport)
+
+		for s in unans:
+			self.filtered_ports.append(s[TCP].dport)
 
 		if (verbose == True):
 			SynScanner.print_open_ports(self)
+			SynScanner.print_filtered_ports(self)
 
 def main():
-	a = SynScanner("www.google.com", target_ports=[80,443])
+	a = SynScanner("www.amazon.com", target_ports=[80,443])
 	print(a)
 	a.print_target_ports()
-	a.start(verbose=True)
+	a.start()
+	a.print_open_ports()
 
 	b = SynScanner("www.yahoo.com")
 	b.print_target_ports()
-	b.start()
-	b.print_open_ports()
+	b.start(verbose=True)
 
 if __name__ == "__main__":
 	main()

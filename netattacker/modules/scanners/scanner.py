@@ -40,6 +40,7 @@ class ScannerBaseClass(AttackerBaseClass):
 			self.target_ports = target_ports
 
 		self.open_ports = []
+		self.filtered_ports = []
 
 	def print_target_ports(self):
 		"""Prints the target ports"""
@@ -48,3 +49,7 @@ class ScannerBaseClass(AttackerBaseClass):
 	def print_open_ports(self):
 		"""Prints the ports found to be open"""
 		print("[*] The open ports are:", *self.open_ports)
+
+	def print_filtered_ports(self):
+		"""Prints the ports found to be filtered"""
+		print("[*] The filtered ports are:", *self.filtered_ports)
