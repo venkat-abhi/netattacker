@@ -1,4 +1,4 @@
-# Setup
+# SETUP
 1. Setup virtual env
 ```bash
 python3 -m venv venv
