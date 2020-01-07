@@ -20,7 +20,7 @@ class SynScanner(ScannerBaseClass):
 	start()
 		Creates SYN packets and sends them to scan the target
 	"""
-	def __init__(self, target:str, target_ports:list=None, attack:str=None):
+	def __init__(self, target:str, target_ports:list=None):
 		super().__init__(target, target_ports=target_ports, attack="SYN_SCAN")
 
 	def start(self, verbose:bool=False):
