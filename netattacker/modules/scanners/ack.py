@@ -32,7 +32,6 @@ class AckScanner(ScannerBaseClass):
 	 			self.filtered_ports.append(s[TCP].dport)
 
 		for s in unans:
-			print(s.show())
 			self.filtered_ports.append(s[TCP].dport)
 
 		if (verbose == True):
