@@ -3,6 +3,7 @@ from inspect import getmembers, isclass
 
 from netattacker.attacker import AttackerBaseClass
 
+base_classes = ['AttackerBaseClass', 'ScannerBaseClass']
 
 def grab(attack_module:str, *args, **kwargs):
 	try:
@@ -14,8 +15,9 @@ def grab(attack_module:str, *args, **kwargs):
 		if (1 == attack_module.count('.')):
 			imported_module = import_module(module_name)
 			for name, obj in getmembers(imported_module, isclass):
-				if (issubclass(obj, AttackerBaseClass) and name != 'AttackerBaseClass'):
+				if (issubclass(obj, AttackerBaseClass) and name not in base_classes):
 					class_name = name
+					break
 
 		if (2 <= attack_module.count('.')):
 			module_name, class_name = attack_module.rsplit(".", 1)

@@ -40,7 +40,6 @@ def main():
 	print(a)
 	a.print_target_ports()
 	a.start()
-	a.print_open_ports()
 
 	b = XmasScanner("www.yahoo.com")
 	b.print_target_ports()

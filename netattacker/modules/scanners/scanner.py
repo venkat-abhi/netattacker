@@ -46,6 +46,8 @@ class ScannerBaseClass(AttackerBaseClass):
 		self.open_filtered_ports = []
 		self.closed_filtered_ports = []
 
+	def start(self):
+		pass
 
 	def print_target_ports(self):
 		"""Prints the target ports"""

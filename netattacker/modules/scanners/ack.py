@@ -4,14 +4,32 @@ from netattacker.modules.scanners.scanner import ScannerBaseClass
 
 class AckScanner(ScannerBaseClass):
 	"""
-	A class used to represent ACK based port scanner
+	A class used to represent TCP ACK based port scanner
+
+	...
+
+	Attributes
+	----------
+	target : str
+		The target's hostname or IP address
+	target_ports : list
+		The ports to which the SYNs will be sent to (default - target_ports)
+
+	Methods
+	-------
+	start()
+		Creates ACK packets and sends them to scan the target
 
 	"""
 
-	def __init__(self, target:str, target_ports:list=None):
+	def __init__(self, target:str, target_ports:list=None, attack:str=None):
 		super().__init__(target, target_ports=target_ports, attack="ACK_SCAN")
 
 	def start(self, verbose:bool=False):
+		"""
+		Scans the ports and stores the results in a list; If verbose flag is passed,
+		the output is printed as well.
+		"""
 		print("[*] Starting ACK port scan")
 
 		ip = IP(dst=self.target_ipv4)
