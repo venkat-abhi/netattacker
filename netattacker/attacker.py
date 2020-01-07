@@ -10,6 +10,7 @@ ATTACK_TYPE = [
 	'NTP_AMPLIFY',
 	'SYN_SCAN',
 	'ACK_SCAN',
+	'XMAS_SCAN',
 	'INVALID'
 ]
 
