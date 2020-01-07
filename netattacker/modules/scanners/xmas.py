@@ -3,10 +3,30 @@ from scapy.all import RandShort, sr, ICMP, IP, TCP
 from netattacker.modules.scanners.scanner import ScannerBaseClass
 
 class XmasScanner(ScannerBaseClass):
+	"""
+	A class used to represent an XMAS port scanner
+
+	...
+
+	Attributes
+	----------
+	target : str
+		The target's hostname or IP address
+	target_ports : list
+		The ports to which the SYNs will be sent to (default - target_ports)
+
+	Methods
+	-------
+	start()
+		Creates TCP packets with URG, FIN, and PSH and sends them to scan the target
+	"""
 	def __init__(self, target:str, target_ports:list=None):
 		super().__init__(target, target_ports=target_ports, attack="XMAS_SCAN")
 
 	def start(self, verbose:bool=False):
+		"""
+		Creates TCP packets with URG, FIN, and PSH and sends them to scan the target
+		"""
 		print("[*] Starting XMAS port scan")
 
 		ip = IP(dst=self.target_ipv4)
