@@ -1,4 +1,3 @@
-
 from scapy.all import RandShort, sr, ICMP, IP, TCP
 
 from netattacker.modules.scanners.scanner import ScannerBaseClass
@@ -9,9 +8,8 @@ class AckScanner(ScannerBaseClass):
 
 	"""
 
-	def __init__(self, target:str, target_ports:list=None, attack:str=None):
+	def __init__(self, target:str, target_ports:list=None):
 		super().__init__(target, target_ports=target_ports, attack="ACK_SCAN")
-		self.unfiltered_ports = []
 
 	def start(self, verbose:bool=False):
 		print("[*] Starting ACK port scan")
@@ -41,8 +39,6 @@ class AckScanner(ScannerBaseClass):
 			AckScanner.print_unfiltered_ports(self)
 			AckScanner.print_filtered_ports(self)
 
-	def print_unfiltered_ports(self):
-		print("[*] The unfiltered ports are:", *self.unfiltered_ports)
 
 def main():
 	a = AckScanner("www.amazon.com", target_ports=[80,443])
