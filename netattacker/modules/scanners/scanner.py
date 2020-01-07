@@ -43,6 +43,8 @@ class ScannerBaseClass(AttackerBaseClass):
 		self.closed_ports = []
 		self.filtered_ports = []
 		self.unfiltered_ports = []
+		self.open_filtered_ports = []
+		self.closed_filtered_ports = []
 
 
 	def print_target_ports(self):
@@ -56,17 +58,37 @@ class ScannerBaseClass(AttackerBaseClass):
 		else:
 			print("[#] No target ports found open")
 
+	def print_closed_ports(self):
+		"""Prints the ports found to be closed"""
+		if (self.closed_ports):
+			print("[*] The closed ports are:", *self.closed_ports)
+		else:
+			print("[#] No target ports found closed")
+
 	def print_filtered_ports(self):
 		"""Prints the ports found to be filtered"""
 		if (self.filtered_ports):
 			print("[*] The filtered ports are:", *self.filtered_ports)
 		else:
-			print("[#] No target ports found to be filtered")
-
+			print("[#] No target ports found filtered")
 
 	def print_unfiltered_ports(self):
-		"""Prints the ports found to be unfiltered"""
+		"""Prints the ports found unfiltered"""
 		if (self.unfiltered_ports):
 			print("[*] The unfiltered ports are:", *self.unfiltered_ports)
 		else:
-			print("[#] No target ports found to be unfiltered")
+			print("[#] No target ports found unfiltered")
+
+	def print_open_filtered_ports(self):
+		"""Prints the ports found open|filtered"""
+		if (self.open_filtered_ports):
+			print("[*] The open|filtered ports are:", *self.open_filtered_ports)
+		else:
+			print("[#] No target ports found open|filtered")
+
+	def print_closed_filtered_ports(self):
+		"""Prints the ports found closed|filtered"""
+		if (self.closed_filtered_ports):
+			print("[*] The closed|filtered ports are:", *self.closed_filtered_ports)
+		else:
+			print("[#] No target ports found closed|filtered")
