@@ -60,10 +60,9 @@ class NullScanner(ScannerBaseClass):
 
 
 def main():
-	a = NullScanner("www.amazon.com", target_ports=[80,443])
+	a = NullScanner("www.amazon.com", target_ports=[654, 80,443])
 	print(a)
 	a.start()
-	a.print_unfiltered_ports()
 
 	b = NullScanner("www.yahoo.com")
 	b.print_target_ports()

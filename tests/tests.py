@@ -25,9 +25,11 @@ class TestAttacker:
 
 	def test_ack_scan(self):
 		arp_scan_instance = sm.grab('scanners.ack', target=self.target)
-		print(arp_scan_instance)
-		arp_scan_instance.print_target_ports()
 		arp_scan_instance.start(verbose=True)
+
+	def test_null_scan(self):
+		null_scan_instance = sm.grab('scanners.null', target=self.target)
+		null_scan_instance.start(verbose=True)
 
 
 def main():
@@ -35,6 +37,7 @@ def main():
 	a.test_xmas_scan()
 	a.test_ack_scan()
 	a.test_syn_dos()
+	a.test_null_scan()
 
 if __name__ == "__main__":
 	main()
