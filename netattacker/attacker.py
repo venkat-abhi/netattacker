@@ -12,6 +12,7 @@ ATTACK_TYPE = [
 	'ACK_SCAN',
 	'XMAS_SCAN',
 	'FIN_SCAN',
+	'NULL_SCAN'
 	'INVALID'
 ]
 
